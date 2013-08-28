@@ -10,7 +10,8 @@ namespace :db do
     users += 98.times.collect do
       name = Faker::Name.first_name
       email = "#{name}@example.com"
-      user = User.create!(name: name, email: email)
+      password = Faker::Internet.password
+      user = User.create!(name: name, email: email, password: password, password_confirmation: password)
     end
 
     # Randomize user created_at flat
