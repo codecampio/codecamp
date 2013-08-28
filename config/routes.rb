@@ -1,5 +1,10 @@
 Codecamp::Application.routes.draw do
-  resources :users
+  resources :users do
+    get 'followers', on: :member
+    get 'followings', on: :member
+    post 'follow', on: :member
+    delete 'unfollow', on: :member
+  end
   resources :posts
   resource :sessions, only: [ :new, :create, :destroy ]
   get '/sandbox', to: 'root#sandbox' if Rails.env.development?

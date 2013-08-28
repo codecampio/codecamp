@@ -1,0 +1,7 @@
+<li class="post">
+  <%= link_to gravatar_for(post.user), post.user, class: "gravatar" %>
+  <%= link_to post.user.name, post.user, class: "user" %>
+  <%= content_tag :span, post.content, class: "content" %>
+  <%= content_tag :span, "Posted #{time_ago_in_words(post.created_at)} ago", class: "timestamp" %>
+	<%= link_to "delete", post, class: "delete", method: :delete, confirm: "Are you sure?" if current_user?(post.user) %>          
+</li>

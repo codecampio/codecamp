@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.all
+		@posts = Post.from_followed_users(current_user).order("created_at DESC")
 		@post = current_user.posts.build
 	end
 
@@ -16,8 +16,7 @@ class PostsController < ApplicationController
 
   def destroy
   	@post = current_user.posts.find_by(id: params[:id])
-  	if @post
-	  	@post.destroy
+  	if @post && @post.destroy
 	  	flash[:success] = "Post deleted"
 	  else
 	  	flash[:error] = "Cannot delete post"

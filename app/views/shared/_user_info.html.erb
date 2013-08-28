@@ -1,0 +1,7 @@
+<h1>
+  <%= gravatar_for user %>
+  <%= user.name %>
+</h1>
+<%= pluralize user.posts.count, "posts" %><br>
+<%= link_to pluralize(user.followers.count, "follower"), followers_user_path(user) %><br>
+<%= link_to pluralize(user.followed_users.count, "following"), followings_user_path(user) %><br>

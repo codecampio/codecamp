@@ -1,0 +1,16 @@
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= render "shared/user_info", user: @user %>
+    </section>
+    <section>
+      <%= render "shared/user_actions", user: @user %>
+    </section>
+  </aside>
+  <div class="span8">
+    <h1><%= @title %></h1>
+    <ul class="users">
+      <%= render partial: "shared/user", collection: @users %>
+    </ul>
+  </div>
+</div>
