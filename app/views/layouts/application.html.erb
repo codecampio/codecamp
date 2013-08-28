@@ -8,7 +8,26 @@
 </head>
 <body>
 
-<%= yield %>
+<!-- New header -->
+<header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container">
+            <%= link_to "FirstApp", "#", id: "logo" %>
+        </div>
+    </div>
+</header>
+<!-- Content wrapped in container -->
+<div class="container">
+    <%= yield %>
+  <!-- New footer -->
+  <footer class="footer">
+    <small>
+      <a href="codecamp.io">程式開發工作營</a>
+    </small>
+  </footer>
+  <!-- Debugging footer -->
+    <%= debug(params) if Rails.env.development? %>
+</div>
 
 </body>
 </html>

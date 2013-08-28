@@ -1,4 +1,7 @@
 Codecamp::Application.routes.draw do
+  resources :users
+  root to: 'root#home' # This maps '/' to the root#home action
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
