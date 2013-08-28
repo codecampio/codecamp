@@ -115,3 +115,33 @@ footer ul li {
   @extend .control-group;
   @extend .error;
 }
+
+/* posts */
+
+.posts {
+  list-style: none;
+  margin: 10px 0 0 0;
+  
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.content {
+  display: block;
+}
+.timestamp {
+  color: $grayLight;
+}
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+.new_post {
+    textarea {
+        width: 85%;
+    }
+    input[type=submit] {
+        margin-bottom: 10px;
+    }
+}

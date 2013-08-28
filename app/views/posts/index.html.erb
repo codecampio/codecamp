@@ -1,0 +1,30 @@
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= render "shared/form_errors", record: @post %>
+      <%= link_to gravatar_for(current_user) %>
+      <%= link_to current_user.name, current_user %><br />
+      <%= pluralize(current_user.posts.count, "post") %><br />
+    </section>
+    <section>
+      <%= form_for @post do |f| %>
+        <%= f.text_area :content, placeholder: "Write a new post" %><br />
+        <%= f.submit "Post", class: "btn btn-primary" %>
+      <% end %>
+    </section>
+  </aside>
+  <div class="span8">
+    <h1>Posts</h1>
+    <ul class="posts">
+      <% @posts.each do |post| %>
+        <li class="post">
+          <%= link_to gravatar_for(post.user), post.user, class: "gravatar" %>
+          <%= link_to post.user.name, post.user, class: "user" %>
+          <%= content_tag :span, post.content, class: "content" %>
+          <%= content_tag :span, "Posted #{time_ago_in_words(post.created_at)} ago", class: "timestamp" %>
+					<%= link_to "delete", post, class: "delete", method: :delete, confirm: "Are you sure?" if current_user?(post.user) %>          
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
