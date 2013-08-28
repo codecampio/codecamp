@@ -38,6 +38,9 @@ gem 'jbuilder', '~> 1.2'
 # Use Twitter's Bootstrap UI framework
 gem 'bootstrap-sass'
 
+# Generate fake content
+gem 'faker', group: :development
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
