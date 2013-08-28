@@ -1,5 +1,7 @@
 Codecamp::Application.routes.draw do
   resources :users
+  resource :sessions, only: [ :new, :create, :destroy ]
+  get '/sandbox', to: 'root#sandbox' if Rails.env.development?
   root to: 'root#home' # This maps '/' to the root#home action
 
   # The priority is based upon order of creation: first created -> highest priority.
